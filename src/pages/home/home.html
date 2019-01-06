@@ -1,14 +1,44 @@
 <ion-header>
   <ion-navbar>
     <ion-title>
-      Ionic Blank
+      TicketBucket
     </ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-  The world is your oyster.
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will be your guide.
-  </p>
+  
+  <ion-grid>
+    <ion-list>
+    <ion-item>
+        <h2>{{(item | async)?.UserName}}</h2>
+        <p>Latitude: {{(item | async)?.latitude}}</p>
+        <p>Longitude: {{(item | async)?.longitude}}</p>
+      </ion-item>
+      </ion-list>
+        <ion-row>
+          <ion-col col-12>
+              <ion-item>
+                  <ion-label>Select Train</ion-label>
+                </ion-item>
+          </ion-col>
+          <ion-col col-12>
+             <ion-select name = "language" [(ngModel)] = "language" >
+              <ion-option value="8057/58:Ruhunu Kumari">Ruhunu Kumari</ion-option>
+              <ion-option value="1007/08:Udarata Manike">Udarata Manike</ion-option>
+              <ion-option value="8067/68:Sagarika">Sagarika</ion-option>
+              <ion-option value="8041/42:Galu kumari">Galu Kumari</ion-option>
+            </ion-select> 
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+              <ion-col>
+                  <button ion-button round (click)="sendData()">Set Train</button> 
+                  <button ion-button round (click)="torch()">Torch</button> 
+              </ion-col>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+
 </ion-content>
